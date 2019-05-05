@@ -197,6 +197,19 @@
                                     <md5>a3f59ce296c1f7538fb35dab907ca646</md5>
                                 </configuration>
                             </execution>
+                            <execution>
+                                <id>download-cifar10-dataset</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>wget</goal>
+                                </goals>
+                                <configuration>
+                                    <url>https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz</url>
+                                    <unpack>false</unpack>
+                                    <outputDirectory>src/main/resources/data/cifar10/</outputDirectory>
+                                    <md5>c32a1d4ab5d03f1284b67883e8d87530</md5>
+                                </configuration>
+                            </execution>
                         </executions>
                     </plugin>
 
