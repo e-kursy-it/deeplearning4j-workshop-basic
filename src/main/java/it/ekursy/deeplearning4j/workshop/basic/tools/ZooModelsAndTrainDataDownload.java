@@ -23,23 +23,23 @@ public class ZooModelsAndTrainDataDownload {
         // change model download location into src/main/resources of this project ;)
         DL4JResources.setBaseDirectory( new File( "src/main/resources/" ) );
 
-//        // download pre-trained vgg16
-//        {
-//            ZooModel zooModel = VGG16.builder().numClasses( 1000 ).build();
-//            ComputationGraph computationGraph = (ComputationGraph) zooModel.initPretrained( PretrainedType.IMAGENET );
-//        }
-//
-//        // download pre-trained yolo2
-//        {
-//            ZooModel zooModel = YOLO2.builder().numClasses( 6 ).build();
-//            ComputationGraph computationGraph = (ComputationGraph) zooModel.initPretrained();
-//        }
-//
-//        // download pre-trained tinyYolo
-//        {
-//            ZooModel zooModel = TinyYOLO.builder().numClasses( 6 ).build();
-//            ComputationGraph computationGraph = (ComputationGraph) zooModel.initPretrained();
-//        }
+        // download pre-trained vgg16
+        {
+            ZooModel zooModel = VGG16.builder().numClasses( 1000 ).build();
+            ComputationGraph computationGraph = (ComputationGraph) zooModel.initPretrained( PretrainedType.IMAGENET );
+        }
+
+        // download pre-trained yolo2
+        {
+            ZooModel zooModel = YOLO2.builder().numClasses( 6 ).build();
+            ComputationGraph computationGraph = (ComputationGraph) zooModel.initPretrained();
+        }
+
+        // download pre-trained tinyYolo
+        {
+            ZooModel zooModel = TinyYOLO.builder().numClasses( 6 ).build();
+            ComputationGraph computationGraph = (ComputationGraph) zooModel.initPretrained();
+        }
 
         {
 
