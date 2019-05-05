@@ -21,3 +21,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+deeplearning4j-workshop-basic.iml
+deeplearning4j-workshop-basic.ipr
+deeplearning4j-workshop-basic.iws
+target/**
