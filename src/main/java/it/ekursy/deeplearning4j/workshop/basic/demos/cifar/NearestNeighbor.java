@@ -8,6 +8,7 @@ import static org.nd4j.linalg.ops.transforms.Transforms.abs;
 import static org.nd4j.linalg.ops.transforms.Transforms.euclideanDistance;
 import static org.nd4j.linalg.ops.transforms.Transforms.manhattanDistance;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.Arrays;
@@ -24,7 +25,6 @@ import org.datavec.image.loader.CifarLoader;
 import org.jetbrains.annotations.NotNull;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
-
 
 /**
  * Simple example for Nearest Neighbor classification.
@@ -44,7 +44,7 @@ public class NearestNeighbor {
     {
         Map<INDArray, Byte> trainingMap = readTrainingData();
 
-        CifarLoader cifarLoader = new CifarLoader( false );
+        CifarLoader cifarLoader = new CifarLoader( false, new File( "src/main/resources" ) );
         final byte[] testImageData = IOUtils.toByteArray( cifarLoader.getInputStream() );
         int imageLen = HEIGHT * WIDTH * CHANNELS;
         Random random = new Random( 100 );
