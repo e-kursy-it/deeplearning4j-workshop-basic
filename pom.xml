@@ -219,25 +219,24 @@
                         <version>1.6.0</version>
                         <executions>
                             <execution>
-                                <phase>process-resources</phase>
+                                <phase>test-compile</phase>
                                 <goals>
-                                    <goal>java</goal>
+                                    <goal>exec</goal>
                                 </goals>
+                                <configuration>
+                                    <executable>java</executable>
+                                    <arguments>
+                                        <!--<argument>&#45;&#45;module-path</argument>-->
+                                        <!--<modulepath/>-->
+                                        <argument>-classpath</argument>
+                                        <!--&lt;!&ndash; automatically creates the classpath using all project dependencies,-->
+                                        <!--also adding the project build directory &ndash;&gt;-->
+                                        <classpath/>
+                                        <argument>it.ekursy.deeplearning4j.workshop.basic.tools.ZooModelsAndTrainDataDownload</argument>
+                                    </arguments>
+                                </configuration>
                             </execution>
                         </executions>
-                        <configuration>
-                            <executable>java</executable>
-                            <arguments>
-                                <argument>--module-path</argument>
-                                <modulepath/>
-                                <!--<argument>-classpath</argument>-->
-                                <!--&lt;!&ndash; automatically creates the classpath using all project dependencies,-->
-                                <!--also adding the project build directory &ndash;&gt;-->
-                                <!--<classpath/>-->
-                                <argument>it.ekursy.deeplearning4j.workshop.basic.tools.ZooModelsAndTrainDataDownload</argument>
-                            </arguments>
-                        </configuration>
-
                     </plugin>
                 </plugins>
             </build>
