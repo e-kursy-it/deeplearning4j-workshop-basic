@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import org.nd4j.linalg.factory.Nd4j;
 
-public class INDArray {
+public class INDArrayExercise {
 
     private static final Logger LOG = LogManager.getLogger();
 
