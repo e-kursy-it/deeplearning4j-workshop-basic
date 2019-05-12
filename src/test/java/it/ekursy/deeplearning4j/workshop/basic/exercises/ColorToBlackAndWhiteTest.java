@@ -65,13 +65,13 @@ public class ColorToBlackAndWhiteTest {
         BufferedImage bufimage = new BufferedImage( IMAGE_WIDTH, IMAGE_HEIGHT, BufferedImage.TYPE_BYTE_GRAY);
         Graphics2D g = (Graphics2D) bufimage.getGraphics();
         g.setBackground( Color.WHITE );
-        g.clearRect( 0, 0, 750, IMAGE_HEIGHT );
+        g.clearRect( 0, 0, IMAGE_WIDTH, IMAGE_HEIGHT );
 
-        for (var i = 0; i < IMAGE_HEIGHT; i++) {
-            for (var j = 0; j < 750; j++) {
-                var pixel = bwArrSummed.getScalar( i, j ).getInt( 0 );
+        for (var h = 0; h < IMAGE_HEIGHT; h++) {
+            for (var w = 0; w < IMAGE_WIDTH; w++) {
+                var pixel = bwArrSummed.getScalar( h, w ).getInt( 0 );
                 var col = new Color( pixel, pixel, pixel );
-                bufimage.setRGB( j, i, col.getRGB() );
+                bufimage.setRGB( w, h, col.getRGB() );
             }
         }
 
