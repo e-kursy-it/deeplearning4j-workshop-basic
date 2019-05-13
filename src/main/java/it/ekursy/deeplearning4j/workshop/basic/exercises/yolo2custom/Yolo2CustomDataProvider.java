@@ -23,7 +23,7 @@ public class Yolo2CustomDataProvider implements ImageObjectLabelProvider {
 
     private static final Logger log = LogManager.getLogger();
 
-    private static final List<Integer[]> BOXES = new ArrayList<>() {
+    public static final List<Integer[]> BOXES = new ArrayList<>() {
         {
             add( new Integer[] { 47, 39, 165, 250 } );
             add( new Integer[] { 179, 39, 293, 250 } );
@@ -53,7 +53,7 @@ public class Yolo2CustomDataProvider implements ImageObjectLabelProvider {
         }
     }
 
-    private ImageObject labelToImageObject(List<String> labels, int i)
+    public static ImageObject labelToImageObject(List<String> labels, int i)
     {
         var currentLabel = labels.get( i );
         var currentBox = BOXES.get( i );

@@ -73,6 +73,16 @@ public class Yolo2CustromDataProviderTest {
         testProperLabel( labels, 3, "1" );
     }
 
+    @Test
+    public void testLabelToImageObject()
+    {
+        List<String> labels = List.of( "0", "1" );
+        var imageObject = Yolo2CustomDataProvider.labelToImageObject( labels, 0 );
+
+        assertEquals( "0", imageObject.getLabel() );
+        assertEquals( (int) Yolo2CustomDataProvider.BOXES.get( 0 )[ 0 ], imageObject.getX1() );
+    }
+
     private void testProperLabel(List<ImageObject> labels, int index, String value)
     {
         var imageObject = labels.get( index );
