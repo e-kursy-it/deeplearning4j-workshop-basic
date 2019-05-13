@@ -1,4 +1,4 @@
-package it.ekursy.deeplearning4j.workshop.basic.exercises;
+package it.ekursy.deeplearning4j.workshop.basic.exercises.indarray;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
