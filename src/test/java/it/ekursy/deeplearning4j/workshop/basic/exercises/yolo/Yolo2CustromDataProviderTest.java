@@ -83,6 +83,14 @@ public class Yolo2CustromDataProviderTest {
         assertEquals( (int) Yolo2CustomDataProvider.BOXES.get( 0 )[ 0 ], imageObject.getX1() );
     }
 
+    @Test
+    public void testPathToLabelMapKey()
+    {
+        var path = Paths.get( "src", "test", "resources", "data", "digitalclock", "img_002.jpg" );
+        var labelMapKey = Yolo2CustomDataProvider.pathToLabelMapKey( path.toAbsolutePath().toString() );
+        assertEquals( "img_002.jpg", labelMapKey );
+    }
+
     private void testProperLabel(List<ImageObject> labels, int index, String value)
     {
         var imageObject = labels.get( index );
