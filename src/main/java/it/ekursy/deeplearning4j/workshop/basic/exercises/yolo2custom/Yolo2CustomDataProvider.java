@@ -110,7 +110,7 @@ public class Yolo2CustomDataProvider implements ImageObjectLabelProvider {
         return labelMap.get( filename );
     }
 
-    public String pathToLabelMapKey(String path)
+    public static String pathToLabelMapKey(String path)
     {
         File file = new File( path );
         return file.getName();
