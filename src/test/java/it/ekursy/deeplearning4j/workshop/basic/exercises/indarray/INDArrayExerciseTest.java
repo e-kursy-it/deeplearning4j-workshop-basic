@@ -7,7 +7,9 @@ import java.util.List;
 
 import org.junit.Test;
 import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.api.ops.impl.indexaccum.IAMax;
 import org.nd4j.linalg.factory.Nd4j;
+import org.nd4j.linalg.ops.transforms.Transforms;
 
 public class INDArrayExerciseTest {
 
@@ -16,21 +18,21 @@ public class INDArrayExerciseTest {
     @Test
     public void testCreateMatrixOfZeros()
     {
-        var zeros = (INDArray) null;
+        var zeros = Nd4j.zeros( 2, 2 );
 
         assertEquals( 2, zeros.rank() );
         assertEquals( 4, zeros.length() );
-        assertEquals( 0, zeros.sumNumber() );
+        assertEquals( 0.0, zeros.sumNumber().doubleValue(), 0 );
     }
 
     @Test
     public void testCreateZerosOnesAndTwosVstacked()
     {
-        var zeros = (INDArray) null;
-        var ones = (INDArray) null;
-        var twos = (INDArray) null;
+        var zeros = Nd4j.zeros( 2, 2 );
+        var ones = Nd4j.ones( 2, 2 );
+        var twos = Nd4j.zeros( 2, 2 ).addi( 2 );
 
-        var vstack = (INDArray) null;
+        var vstack = Nd4j.vstack( zeros, ones, twos );
 
         validateArrayShape( zeros, 2, 4, 0, List.of( 2, 2 ) );
         validateArrayShape( ones, 2, 4, 4, List.of( 2, 2 ) );
@@ -42,11 +44,11 @@ public class INDArrayExerciseTest {
     @Test
     public void testCreateZerosOnesAndTwosHstacked()
     {
-        var zeros = (INDArray) null;
-        var ones = (INDArray) null;
-        var twos = (INDArray) null;
+        var zeros = Nd4j.zeros( 2, 2 );
+        var ones = Nd4j.ones( 2, 2 );
+        var twos = Nd4j.zeros( 2, 2 ).addi( 2 );
 
-        var hstack = (INDArray) null;
+        var hstack = Nd4j.hstack( zeros, ones, twos );
 
         validateArrayShape( zeros, 2, 4, 0, List.of( 2, 2 ) );
         validateArrayShape( ones, 2, 4, 4, List.of( 2, 2 ) );
@@ -58,11 +60,11 @@ public class INDArrayExerciseTest {
     @Test
     public void testGetDouble()
     {
-        var zeros = (INDArray) null;
-        var ones = (INDArray) null;
-        var twos = (INDArray) null;
+        var zeros = Nd4j.zeros( 2, 2 );
+        var ones = Nd4j.ones( 2, 2 );
+        var twos = Nd4j.zeros( 2, 2 ).addi( 2 );
 
-        var hstack = (INDArray) null;
+        var hstack = Nd4j.hstack( zeros, ones, twos );
 
         validateArrayShape( zeros, 2, 4, 0, List.of( 2, 2 ) );
         validateArrayShape( ones, 2, 4, 4, List.of( 2, 2 ) );
@@ -71,9 +73,9 @@ public class INDArrayExerciseTest {
         validateArrayShape( hstack, 2, 12, 12, List.of( 2, 6 ) );
 
         // replace with array proper array values using getDouble
-        assertEquals( 2.0, NEGATIVE_ONE, 0 );
-        assertEquals( 1.0, NEGATIVE_ONE, 0 );
-        assertEquals( 0.0, NEGATIVE_ONE, 0 );
+        assertEquals( 2.0, hstack.getDouble( 0, 4 ), 0 );
+        assertEquals( 1.0, hstack.getDouble( 1, 2 ), 0 );
+        assertEquals( 0.0, hstack.getDouble( 0, 0 ), 0 );
     }
 
     @Test
@@ -81,11 +83,13 @@ public class INDArrayExerciseTest {
     {
         var zeros = Nd4j.zeros( 2, 2 );
 
-        validateArrayShape( zeros, 2, 4, 3.0, List.of( 2, 2 ) );
-        validateArrayShape( zeros.getRow( 0 ), 1, 2, 3.0, List.of( 1, 2 ) );
-        validateArrayShape( zeros.getRow( 0 ), 1, 2, 0.0, List.of( 1, 2 ) );
+        zeros.putScalar( 0, 0, 3.0 );
 
-        assertEquals( 3.0, NEGATIVE_ONE, 0 );
+        validateArrayShape( zeros, 2, 4, 3.0, List.of( 2, 2 ) );
+        validateArrayShape( zeros.getRow( 0 ), 2, 2, 3.0, List.of( 1, 2 ) );
+        validateArrayShape( zeros.getRow( 1 ), 2, 2, 0.0, List.of( 1, 2 ) );
+
+        assertEquals( 3.0, zeros.getDouble( 0, 0 ), 0 );
     }
 
     @Test
@@ -96,19 +100,19 @@ public class INDArrayExerciseTest {
             { 1, -1 }
         } );
 
-        var sum = Double.MAX_VALUE;
+        var sum = arr.sumNumber().doubleValue();
 
-        assertEquals( 10.2313213325, sum, 0 );
+        assertEquals( 0, sum, 0 );
     }
 
     @Test
     public void testSumArray0()
     {
-        var zeros = (INDArray) null;
-        var ones = (INDArray) null;
-        var twos = (INDArray) null;
+        var zeros = Nd4j.zeros( 2, 3 );
+        var ones = Nd4j.ones( 2, 3 );
+        var twos = Nd4j.zeros( 2, 3 ).addi( 2 );
 
-        var vstack = (INDArray) null;
+        var vstack = Nd4j.vstack( zeros, ones, twos );
 
         var sum0 = vstack.sum( 0 );
 
@@ -124,11 +128,11 @@ public class INDArrayExerciseTest {
     @Test
     public void testSumArray1()
     {
-        var zeros = (INDArray) null;
-        var ones = (INDArray) null;
-        var twos = (INDArray) null;
+        var zeros = Nd4j.zeros( 2, 3 );
+        var ones = Nd4j.ones( 2, 3 );
+        var twos = Nd4j.zeros( 2, 3 ).addi( 2 );
 
-        var vstack = (INDArray) null;
+        var vstack = Nd4j.vstack( zeros, ones, twos );
 
         var sum0 = vstack.sum( 1 );
 
@@ -149,9 +153,9 @@ public class INDArrayExerciseTest {
             { 1, -1 }
         } );
 
-        var cosArray = (INDArray) null;
+        var cosArray = Transforms.cos( arr );
 
-        assertEquals( 2.8357696533203125, NEGATIVE_ONE, 0 );
+        assertEquals( 2.8357696533203125, cosArray.sumNumber().doubleValue(), 0 );
     }
 
     @Test
@@ -162,9 +166,9 @@ public class INDArrayExerciseTest {
             { 1, -1 }
         } );
 
-        var sinArray = (INDArray) null;
+        var sinArray = Transforms.sin( arr );
 
-        assertEquals( 0, NEGATIVE_ONE, 0 );
+        assertEquals( 0, sinArray.sumNumber().doubleValue(), 0 );
     }
 
     @Test
@@ -175,7 +179,7 @@ public class INDArrayExerciseTest {
             { 1.0, -1.0, 3.0 }
         } );
 
-        var reshaped = (INDArray) null;
+        var reshaped = arr.reshape( 6 );
 
         validateArrayShape( arr, 2, 6, 5, List.of( 2, 3 ) );
         validateArrayShape( reshaped, 1, 6, 5, List.of( 6 ) );
@@ -190,9 +194,11 @@ public class INDArrayExerciseTest {
         } );
 
 
-        var maxNumber = Double.MAX_VALUE;
+        var maxNumber = arr.maxNumber().doubleValue();
 
-        var maxIndex = Integer.MAX_VALUE;
+        var maxIndex = Nd4j.getExecutioner()
+            .execAndReturn( new IAMax( arr ) )
+            .getFinalResult();
 
         assertEquals( 1.0, maxNumber, 0 );
         assertEquals( 2, maxIndex );
@@ -209,7 +215,7 @@ public class INDArrayExerciseTest {
                 { 0.5,  0.2, -1.2 }
         } );
 
-        var res = (INDArray) null;
+        var res = arr.mulRowVector( mul );
 
         validateArrayShape( res, 2, 6, -5.550000190734863, List.of( 2, 3 ) );
     }
