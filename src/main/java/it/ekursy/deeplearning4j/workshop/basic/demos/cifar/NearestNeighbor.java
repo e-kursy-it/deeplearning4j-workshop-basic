@@ -44,7 +44,7 @@ public class NearestNeighbor {
     {
         Map<INDArray, Byte> trainingMap = readTrainingData();
 
-        CifarLoader cifarLoader = new CifarLoader( false, new File( "src/main/resources" ) );
+        CifarLoader cifarLoader = new CifarLoader( false );
         final byte[] testImageData = IOUtils.toByteArray( cifarLoader.getInputStream() );
         int imageLen = HEIGHT * WIDTH * CHANNELS;
         Random random = new Random( 100 );

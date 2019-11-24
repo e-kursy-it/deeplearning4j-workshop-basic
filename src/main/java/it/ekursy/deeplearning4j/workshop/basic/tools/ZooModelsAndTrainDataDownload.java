@@ -3,6 +3,7 @@ package it.ekursy.deeplearning4j.workshop.basic.tools;
 import java.io.File;
 import java.io.IOException;
 
+import org.datavec.image.loader.CifarLoader;
 import org.deeplearning4j.common.resources.DL4JResources;
 import org.deeplearning4j.datasets.fetchers.DataSetType;
 import org.deeplearning4j.datasets.fetchers.SvhnDataFetcher;
@@ -39,6 +40,11 @@ public class ZooModelsAndTrainDataDownload {
         {
             var zooModel = TinyYOLO.builder().numClasses( 6 ).build();
             var computationGraph = (ComputationGraph) zooModel.initPretrained();
+        }
+
+        {
+            // loading data in ctor
+            var cifarLoader = new CifarLoader(false );
         }
 
 //        {
