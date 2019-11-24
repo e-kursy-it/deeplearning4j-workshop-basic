@@ -25,31 +25,31 @@ public class ZooModelsAndTrainDataDownload {
 
         // download pre-trained vgg16
         {
-            ZooModel zooModel = VGG16.builder().numClasses( 1000 ).build();
-            ComputationGraph computationGraph = (ComputationGraph) zooModel.initPretrained( PretrainedType.IMAGENET );
+            var zooModel = VGG16.builder().numClasses( 1000 ).build();
+            var computationGraph = (ComputationGraph) zooModel.initPretrained( PretrainedType.IMAGENET );
         }
 
         // download pre-trained yolo2
         {
-            ZooModel zooModel = YOLO2.builder().numClasses( 6 ).build();
-            ComputationGraph computationGraph = (ComputationGraph) zooModel.initPretrained();
+            var zooModel = YOLO2.builder().numClasses( 6 ).build();
+            var computationGraph = (ComputationGraph) zooModel.initPretrained();
         }
 
         // download pre-trained tinyYolo
         {
-            ZooModel zooModel = TinyYOLO.builder().numClasses( 6 ).build();
-            ComputationGraph computationGraph = (ComputationGraph) zooModel.initPretrained();
+            var zooModel = TinyYOLO.builder().numClasses( 6 ).build();
+            var computationGraph = (ComputationGraph) zooModel.initPretrained();
         }
 
-        {
-
-            SvhnDataFetcher fetcher = new SvhnDataFetcher();
-
-            DL4JResources.setBaseDirectory( new File( "src/main/resources/" ) );
-
-            File trainDir = fetcher.getDataSetPath( DataSetType.TRAIN );
-            File testDir = fetcher.getDataSetPath( DataSetType.TEST );
-        }
+//        {
+//
+//            SvhnDataFetcher fetcher = new SvhnDataFetcher();
+//
+//            DL4JResources.setBaseDirectory( new File( "src/main/resources/" ) );
+//
+//            File trainDir = fetcher.getDataSetPath( DataSetType.TRAIN );
+//            File testDir = fetcher.getDataSetPath( DataSetType.TEST );
+//        }
 
     }
 }
