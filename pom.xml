@@ -144,32 +144,32 @@
                         <artifactId>download-maven-plugin</artifactId>
                         <version>1.4.1</version>
                         <executions>
-                            <execution>
-                                <id>download-googlenews-model</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>wget</goal>
-                                </goals>
-                                <configuration>
-                                    <url>http://deeplearning4j.e-kursy.it/models/GoogleNews-vectors-negative300.bin.tar.gz</url>
-                                    <unpack>false</unpack>
-                                    <outputDirectory>src/main/resources/models/</outputDirectory>
-                                    <md5>38e86276eb0a700721c3704aab4fa2d5</md5>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>download-housenumber_detection-model</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>wget</goal>
-                                </goals>
-                                <configuration>
-                                    <url>http://deeplearning4j.e-kursy.it/models/house_number_dectection_model_20_epochs.zip</url>
-                                    <unpack>false</unpack>
-                                    <outputDirectory>src/main/resources/models/</outputDirectory>
-                                    <md5>2caf6666707a1c613bc7adad8414fd57</md5>
-                                </configuration>
-                            </execution>
+<!--                            <execution>-->
+<!--                                <id>download-googlenews-model</id>-->
+<!--                                <phase>process-resources</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>wget</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    <url>http://deeplearning4j.e-kursy.it/models/GoogleNews-vectors-negative300.bin.tar.gz</url>-->
+<!--                                    <unpack>false</unpack>-->
+<!--                                    <outputDirectory>src/main/resources/models/</outputDirectory>-->
+<!--                                    <md5>38e86276eb0a700721c3704aab4fa2d5</md5>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                            <execution>-->
+<!--                                <id>download-housenumber_detection-model</id>-->
+<!--                                <phase>process-resources</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>wget</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    <url>http://deeplearning4j.e-kursy.it/models/house_number_dectection_model_20_epochs.zip</url>-->
+<!--                                    <unpack>false</unpack>-->
+<!--                                    <outputDirectory>src/main/resources/models/</outputDirectory>-->
+<!--                                    <md5>2caf6666707a1c613bc7adad8414fd57</md5>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
                             <execution>
                                 <id>download-lenet_mnist-model</id>
                                 <phase>process-resources</phase>
@@ -196,19 +196,19 @@
                                     <md5>7e58d0e74e5a366d627b6cdd958668db</md5>
                                 </configuration>
                             </execution>
-                            <execution>
-                                <id>download-word2vec_sentiment-model</id>
-                                <phase>process-resources</phase>
-                                <goals>
-                                    <goal>wget</goal>
-                                </goals>
-                                <configuration>
-                                    <url>http://deeplearning4j.e-kursy.it/models/word2vecSentimentRNN.zip</url>
-                                    <unpack>false</unpack>
-                                    <outputDirectory>src/main/resources/models/</outputDirectory>
-                                    <md5>a3f59ce296c1f7538fb35dab907ca646</md5>
-                                </configuration>
-                            </execution>
+<!--                            <execution>-->
+<!--                                <id>download-word2vec_sentiment-model</id>-->
+<!--                                <phase>process-resources</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>wget</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    <url>http://deeplearning4j.e-kursy.it/models/word2vecSentimentRNN.zip</url>-->
+<!--                                    <unpack>false</unpack>-->
+<!--                                    <outputDirectory>src/main/resources/models/</outputDirectory>-->
+<!--                                    <md5>a3f59ce296c1f7538fb35dab907ca646</md5>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
                             <execution>
                                 <id>download-cifar10-dataset</id>
                                 <phase>process-resources</phase>
