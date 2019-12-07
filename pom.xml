@@ -20,9 +20,9 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-        <nd4j.version>1.0.0-beta3</nd4j.version>
-        <dl4j.version>1.0.0-beta3</dl4j.version>
-        <nd4j.backend>native-platform</nd4j.backend>
+        <nd4j.version>1.0.0-beta5</nd4j.version>
+        <dl4j.version>1.0.0-beta5</dl4j.version>
+        <dl4j.platform>macosx-x86_64</dl4j.platform>
 
         <!-- Scala binary version: DL4J's Spark and UI functionality are released with both Scala 2.10 and 2.11 support -->
         <scala.binary.version>2.11</scala.binary.version>
@@ -50,14 +50,50 @@
 
         <dependency>
             <groupId>org.nd4j</groupId>
-            <artifactId>nd4j-native-platform</artifactId>
+            <artifactId>nd4j-native</artifactId>
             <version>${nd4j.version}</version>
+            <classifier>${dl4j.platform}</classifier>
         </dependency>
 
         <dependency>
             <groupId>org.deeplearning4j</groupId>
             <artifactId>deeplearning4j-core</artifactId>
             <version>${dl4j.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.bytedeco</groupId>
+                    <artifactId>hdf5-platform</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco</groupId>
+                    <artifactId>opencv-platform</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.bytedeco</groupId>
+                    <artifactId>leptonica-platform</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>hdf5</artifactId>
+            <version>1.10.5-1.5.1</version>
+            <classifier>${dl4j.platform}</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>opencv</artifactId>
+            <version>4.1.0-1.5.1</version>
+            <classifier>${dl4j.platform}</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>leptonica</artifactId>
+            <version>1.78.0-1.5.1</version>
+            <classifier>${dl4j.platform}</classifier>
         </dependency>
 
         <dependency>
