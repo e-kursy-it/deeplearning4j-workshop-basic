@@ -22,6 +22,12 @@
 
     <nd4j.version>1.0.0-SNAPSHOT</nd4j.version>
     <dl4j.version>1.0.0-SNAPSHOT</dl4j.version>
+    <openblas.version>0.3.6-1.5.1</openblas.version>
+    <mkl.version>2019.4-1.5.1</mkl.version>
+    <mkl-dnn.version>0.20-1.5.1</mkl-dnn.version>
+    <hdf5.version>1.10.5-1.5.1</hdf5.version>
+    <opencv.version>4.1.0-1.5.1</opencv.version>
+    <leptonica.version>1.78.0-1.5.1</leptonica.version>
     <!-- defined in os-specific profiles -->
 <!--    <nd4j.native.platform>macosx-x86_64-avx2</nd4j.native.platform>-->
 <!--    <dl4j.platform>macosx-x86_64</dl4j.platform>-->
@@ -94,33 +100,33 @@
     <dependency>
       <groupId>org.bytedeco</groupId>
       <artifactId>openblas</artifactId>
-      <version>0.3.6-1.5.1</version>
+      <version>${openblas.version}</version>
       <classifier>${dl4j.platform}</classifier>
     </dependency>
 
     <dependency>
       <groupId>org.bytedeco</groupId>
       <artifactId>mkl</artifactId>
-      <version>2019.4-1.5.1</version>
+      <version>${mkl.version}</version>
       <classifier>${dl4j.platform}</classifier>
     </dependency>
 
     <dependency>
       <groupId>org.bytedeco</groupId>
       <artifactId>mkl</artifactId>
-      <version>2019.4-1.5.1</version>
+      <version>${mkl.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.bytedeco</groupId>
       <artifactId>mkl-dnn</artifactId>
-      <version>0.20-1.5.1</version>
+      <version>${mkl-dnn.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.bytedeco</groupId>
       <artifactId>mkl-dnn</artifactId>
-      <version>0.20-1.5.1</version>
+      <version>${mkl-dnn.version}</version>
       <classifier>${dl4j.platform}</classifier>
     </dependency>
 
@@ -147,21 +153,21 @@
     <dependency>
       <groupId>org.bytedeco</groupId>
       <artifactId>hdf5</artifactId>
-      <version>1.10.5-1.5.1</version>
+      <version>${hdf5.version}</version>
       <classifier>${dl4j.platform}</classifier>
     </dependency>
 
     <dependency>
       <groupId>org.bytedeco</groupId>
       <artifactId>opencv</artifactId>
-      <version>4.1.0-1.5.1</version>
+      <version>${opencv.version}</version>
       <classifier>${dl4j.platform}</classifier>
     </dependency>
 
     <dependency>
       <groupId>org.bytedeco</groupId>
       <artifactId>leptonica</artifactId>
-      <version>1.78.0-1.5.1</version>
+      <version>${leptonica.version}</version>
       <classifier>${dl4j.platform}</classifier>
     </dependency>
 
