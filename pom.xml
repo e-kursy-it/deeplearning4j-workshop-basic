@@ -22,8 +22,9 @@
 
     <nd4j.version>1.0.0-SNAPSHOT</nd4j.version>
     <dl4j.version>1.0.0-SNAPSHOT</dl4j.version>
-    <nd4j.native.platform>macosx-x86_64-avx2</nd4j.native.platform>
-    <dl4j.platform>macosx-x86_64</dl4j.platform>
+    <!-- defined in os-specific profiles -->
+<!--    <nd4j.native.platform>macosx-x86_64-avx2</nd4j.native.platform>-->
+<!--    <dl4j.platform>macosx-x86_64</dl4j.platform>-->
 
     <!-- Scala binary version: DL4J's Spark and UI functionality are released with both Scala 2.10 and 2.11 support -->
     <scala.binary.version>2.11</scala.binary.version>
@@ -233,6 +234,47 @@
   </build>
 
   <profiles>
+
+    <profile>
+      <id>ND4J_MacOs_64</id>
+      <activation>
+        <os>
+          <family>mac</family>
+          <arch>x86_64</arch>
+        </os>
+      </activation>
+      <properties>
+        <nd4j.native.platform>macosx-x86_64-avx2</nd4j.native.platform>
+        <dl4j.platform>macosx-x86_64</dl4j.platform>
+      </properties>
+    </profile>
+    <profile>
+      <id>ND4J_Linux_64</id>
+      <activation>
+        <os>
+          <family>linux</family>
+          <arch>x86_64</arch>
+        </os>
+      </activation>
+      <properties>
+        <nd4j.native.platform>linux-x86_64-avx512</nd4j.native.platform>
+        <dl4j.platform>linux-x86_64</dl4j.platform>
+      </properties>
+    </profile>
+    <profile>
+      <id>ND4J_Windows_64</id>
+      <activation>
+        <os>
+          <family>windows</family>
+          <arch>x86_64</arch>
+        </os>
+      </activation>
+      <properties>
+        <nd4j.native.platform>windows-x86_64-avx2</nd4j.native.platform>
+        <dl4j.platform>windows-x86_64</dl4j.platform>
+      </properties>
+    </profile>
+
     <profile>
       <id>download pre-trained models</id>
       <activation>
