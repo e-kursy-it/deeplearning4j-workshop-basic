@@ -1,4 +1,4 @@
-package it.ekursy.deeplearning4j.workshop.basic.exercises.vggimagenetexercise.config;
+package it.ekursy.deeplearning4j.workshop.basic.exercises.rest.spring.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

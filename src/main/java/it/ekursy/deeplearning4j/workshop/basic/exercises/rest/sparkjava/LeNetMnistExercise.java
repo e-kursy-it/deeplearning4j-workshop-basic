@@ -1,4 +1,4 @@
-package it.ekursy.deeplearning4j.workshop.basic.exercises;
+package it.ekursy.deeplearning4j.workshop.basic.exercises.rest.sparkjava;
 
 import static spark.Spark.get;
 import static spark.Spark.port;
@@ -9,7 +9,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;

@@ -1,4 +1,4 @@
-package it.ekursy.deeplearning4j.workshop.basic.exercises;
+package it.ekursy.deeplearning4j.workshop.basic.exercises.nd4j;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

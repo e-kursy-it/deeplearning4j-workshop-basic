@@ -1,4 +1,4 @@
-package it.ekursy.deeplearning4j.workshop.basic.exercises.vggimagenetexercise.config;
+package it.ekursy.deeplearning4j.workshop.basic.exercises.rest.spring.config;
 
 import java.io.File;
 import java.io.IOException;

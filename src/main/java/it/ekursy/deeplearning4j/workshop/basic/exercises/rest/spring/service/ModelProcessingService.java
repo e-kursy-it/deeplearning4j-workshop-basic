@@ -1,10 +1,10 @@
-package it.ekursy.deeplearning4j.workshop.basic.exercises.vggimagenetexercise.service;
+package it.ekursy.deeplearning4j.workshop.basic.exercises.rest.spring.service;
 
 import java.io.IOException;
 
 import org.apache.logging.log4j.Logger;
 
-import it.ekursy.deeplearning4j.workshop.basic.exercises.vggimagenetexercise.http.error.NotFoundException;
+import it.ekursy.deeplearning4j.workshop.basic.exercises.rest.spring.http.error.NotFoundException;
 import org.deeplearning4j.nn.graph.ComputationGraph;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.springframework.stereotype.Component;

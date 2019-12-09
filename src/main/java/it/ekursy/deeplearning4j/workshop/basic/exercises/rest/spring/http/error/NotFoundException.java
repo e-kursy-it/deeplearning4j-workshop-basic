@@ -1,4 +1,4 @@
-package it.ekursy.deeplearning4j.workshop.basic.exercises.vggimagenetexercise.http.error;
+package it.ekursy.deeplearning4j.workshop.basic.exercises.rest.spring.http.error;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

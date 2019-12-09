@@ -1,10 +1,10 @@
-package it.ekursy.deeplearning4j.workshop.basic.exercises.vggimagenetexercise.api.image;
+package it.ekursy.deeplearning4j.workshop.basic.exercises.rest.spring.api.image;
 
 import java.io.IOException;
 
 import org.apache.logging.log4j.Logger;
 
-import it.ekursy.deeplearning4j.workshop.basic.exercises.vggimagenetexercise.service.ModelProcessingService;
+import it.ekursy.deeplearning4j.workshop.basic.exercises.rest.spring.service.ModelProcessingService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
