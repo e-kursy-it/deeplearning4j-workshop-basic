@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 
 import it.ekursy.deeplearning4j.workshop.basic.exercises.rest.spring.http.error.NotFoundException;
 import org.deeplearning4j.nn.graph.ComputationGraph;
+import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,13 +16,13 @@ public class ModelProcessingService {
 
     private final Logger logger;
 
-    private final ComputationGraph model;
+    private final MultiLayerNetwork model;
 
     /**
      * @param logger
      * @param model
      */
-    public ModelProcessingService(Logger logger, ComputationGraph model)
+    public ModelProcessingService(Logger logger, MultiLayerNetwork model)
     {
         this.logger = logger;
         this.model = model;

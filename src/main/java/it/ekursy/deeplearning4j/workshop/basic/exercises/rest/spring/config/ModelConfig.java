@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import org.deeplearning4j.common.resources.DL4JResources;
 import org.deeplearning4j.nn.graph.ComputationGraph;
+import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,15 +26,9 @@ public class ModelConfig {
     }
 
     @Bean
-    public ComputationGraph model() throws IOException
+    public MultiLayerNetwork model() throws IOException
     {
-        // dl4j's default severs are really slow, so please use mine
-        DL4JResources.setBaseDownloadURL( "http://deeplearning4j.e-kursy.it/" );
-
-        // change model download location into src/main/resources of this project ;)
-        DL4JResources.setBaseDirectory( new File( "src/main/resources/" ) );
-
-        var model = (ComputationGraph) null;
+        var model = (MultiLayerNetwork) null;
         logger.info( "Creating new model!" );
         return model;
     }
